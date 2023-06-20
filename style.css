@@ -49,3 +49,98 @@
     cursor: pointer;
     opacity: 80%;
 }
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+section#dummy {
+    padding: 40px;
+    position: relative;
+}
+
+section#dummy, section#dummy *:hover {
+    cursor: pointer;
+}
+
+section#dummy:hover:not(:has(.row-dummy:hover)) {
+    box-shadow: 0 0 0 2px green;
+}
+
+#section-btn {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--white);
+    background-color: green;
+    border: none;
+    transition: background-color .25s ease;
+}
+
+section#dummy:hover:not(:has(.row-dummy:hover)) #section-btn {
+    display: block;
+}
+
+#section-btn:hover {
+    background-color: darkgreen;
+}
+
+.row-dummy {
+    position: relative;
+    padding: 10px;
+}
+
+.row-dummy:hover:not(:has(.text-dummy:hover)) {
+    box-shadow: 0 0 0 2px blue;
+}
+
+#row-btn {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    color: var(--white);
+    background-color: blue;
+    border: none;
+    transition: background-color .25s ease;
+}
+
+.row-dummy:hover:not(:has(.text-dummy:hover)) #row-btn {
+    display: block;
+}
+
+#row-btn:hover {
+    background-color: darkblue;
+}
+
+.text-dummy {
+    position: relative;
+}
+
+.text-dummy:hover {
+    box-shadow: 0 0 0 1px orange;
+}
+
+#text-btn {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--white);
+    background-color: orange;
+    border: none;
+    transition: background-color .25s ease;
+}
+
+.text-dummy:hover #text-btn{
+    display: block;
+}
+
+#text-btn:hover {
+    background-color: darkorange;
+}
