@@ -59,7 +59,11 @@ main {
 
 section#dummy {
     padding: 40px;
+    width: 100%;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 section#dummy, section#dummy *:hover {
@@ -90,8 +94,12 @@ section#dummy:hover:not(:has(.row-dummy:hover)) #section-btn {
 }
 
 .row-dummy {
-    position: relative;
     padding: 10px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .row-dummy:hover:not(:has(.text-dummy:hover)) {
@@ -119,7 +127,9 @@ section#dummy:hover:not(:has(.row-dummy:hover)) #section-btn {
 }
 
 .text-dummy {
+    width: 100%;
     position: relative;
+    text-align: center;
 }
 
 .text-dummy:hover {
