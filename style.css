@@ -103,6 +103,10 @@ section#section:hover:not(:has(.row:hover)) #section-btn {
     justify-content: center;
 }
 
+.row:not(:has(.element)) { 
+    border: 1px dotted blue;
+}
+
 .row:hover:not(:has(.element:hover)) {
     box-shadow: 0 0 0 2px blue;
 }
@@ -148,7 +152,19 @@ section#section:hover:not(:has(.row:hover)) #section-btn {
     transition: background-color .25s ease;
 }
 
-.element:hover #element-btn{
+#destroy-element-btn {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: var(--white);
+    background-color: orange;
+    border: none;
+    transition: background-color .25s ease;    
+}
+
+.element:hover #element-btn,
+.element:hover #destroy-element-btn {
     display: block;
 }
 

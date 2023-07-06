@@ -13,19 +13,29 @@ createTextBtn.addEventListener("click", () => {
 
     const element = document.createElement("div");
     const elementBtn = document.createElement("button");
+    const text = document.createElement("p");
+    const destroyElementBtn = document.createElement("button");
+    
     element.classList.add("element");
     elementBtn.id = "element-btn";
     elementBtn.innerText = "Text";
-    
-    const text = document.createElement("p");
     
     text.classList.add("text");
     text.contentEditable = "true";
     text.innerText = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem dolore, alias, numquam enim ab voluptate id quam harum ducimus cupiditate similique quisquam et deserunt, recusandae.";
     
+    destroyElementBtn.classList.add("destroy-element-btn");
+    destroyElementBtn.id = "destroy-element-btn";
+    destroyElementBtn.innerText = "Destroy";
+
     element.append(elementBtn);
     element.append(text);
+    element.append(destroyElementBtn);
     createRowAndAppend(element);
+
+    destroyElementBtn.addEventListener("click", (e) => {
+        e.target.parentNode.remove();
+    })
 })
 
 function createRowAndAppend(element) {
