@@ -57,20 +57,21 @@ main {
     justify-content: center;
 }
 
-section#dummy {
+section#section {
     padding: 40px;
     width: 100%;
     position: relative;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-section#dummy, section#dummy *:hover {
+section#section, section#section *:hover {
     cursor: pointer;
 }
 
-section#dummy:hover:not(:has(.row-dummy:hover)) {
+section#section:hover:not(:has(.row:hover)) {
     box-shadow: 0 0 0 2px green;
 }
 
@@ -85,7 +86,7 @@ section#dummy:hover:not(:has(.row-dummy:hover)) {
     transition: background-color .25s ease;
 }
 
-section#dummy:hover:not(:has(.row-dummy:hover)) #section-btn {
+section#section:hover:not(:has(.row:hover)) #section-btn {
     display: block;
 }
 
@@ -93,7 +94,7 @@ section#dummy:hover:not(:has(.row-dummy:hover)) #section-btn {
     background-color: darkgreen;
 }
 
-.row-dummy {
+.row {
     padding: 10px;
     width: 100%;
     position: relative;
@@ -102,7 +103,7 @@ section#dummy:hover:not(:has(.row-dummy:hover)) #section-btn {
     justify-content: center;
 }
 
-.row-dummy:hover:not(:has(.text-dummy:hover)) {
+.row:hover:not(:has(.element:hover)) {
     box-shadow: 0 0 0 2px blue;
 }
 
@@ -118,7 +119,7 @@ section#dummy:hover:not(:has(.row-dummy:hover)) #section-btn {
     transition: background-color .25s ease;
 }
 
-.row-dummy:hover:not(:has(.text-dummy:hover)) #row-btn {
+.row:hover:not(:has(.element:hover)) #row-btn {
     display: block;
 }
 
@@ -126,17 +127,17 @@ section#dummy:hover:not(:has(.row-dummy:hover)) #section-btn {
     background-color: darkblue;
 }
 
-.text-dummy {
+.element {
     width: 100%;
     position: relative;
     text-align: center;
 }
 
-.text-dummy:hover {
+.element:hover {
     box-shadow: 0 0 0 1px orange;
 }
 
-#text-btn {
+#element-btn {
     display: none;
     position: absolute;
     left: 0;
@@ -147,10 +148,10 @@ section#dummy:hover:not(:has(.row-dummy:hover)) #section-btn {
     transition: background-color .25s ease;
 }
 
-.text-dummy:hover #text-btn{
+.element:hover #element-btn{
     display: block;
 }
 
-#text-btn:hover {
+#element-btn:hover {
     background-color: darkorange;
 }
