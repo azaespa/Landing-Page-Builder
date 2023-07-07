@@ -1,7 +1,45 @@
 const main = document.querySelector("main");
 const createTextBtn = document.getElementById("create-text");
+const createHeadlineTextBtn = document.getElementById("create-headline-text");
+
+const createSectionBtn = document.getElementById("create-section");
 
 let section = document.getElementById("section");
+
+createSectionBtn.addEventListener("click", () => {
+    createSection();
+})
+
+createHeadlineTextBtn.addEventListener("click", () => {
+    
+    if(!main.contains(section)) createSection();
+    
+    const element = document.createElement("div");
+    const elementBtn = document.createElement("button");
+    const headlineText = document.createElement("h1");
+    const destroyElementBtn = document.createElement("button");
+    
+    element.classList.add("element");
+    elementBtn.id = "element-btn";
+    elementBtn.innerText = "Text";
+    
+    headlineText.classList.add("headline-text");
+    headlineText.contentEditable = "true";
+    headlineText.innerText = "Large Headline Text.";
+    
+    destroyElementBtn.classList.add("destroy-element-btn");
+    destroyElementBtn.id = "destroy-element-btn";
+    destroyElementBtn.innerText = "Destroy";
+    
+    element.append(elementBtn);
+    element.append(headlineText);
+    element.append(destroyElementBtn);
+    createRowAndAppend(element);
+    
+    destroyElementBtn.addEventListener("click", (e) => {
+        e.target.parentNode.remove();
+    })
+})
 
 createTextBtn.addEventListener("click", () => {
     // check if there's already a section element
@@ -74,7 +112,8 @@ function createSection() {
     sec.append(destroySecBtn);
     main.append(sec);
     
-    section = document.getElementById("section");
+    const sections = document.getElementsByTagName("section");
+    section = sections[sections.length - 1];
     
     destroySecBtn.addEventListener("click", (e) => {
         e.target.parentNode.remove();
