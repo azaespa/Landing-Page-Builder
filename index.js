@@ -2,9 +2,17 @@ const main = document.querySelector("main");
 const createTextBtn = document.getElementById("create-text");
 const createHeadlineTextBtn = document.getElementById("create-headline-text");
 
+const createRowBtn = document.getElementById("create-row");
 const createSectionBtn = document.getElementById("create-section");
 
 let section = document.getElementById("section");
+
+createRowBtn.addEventListener("click", () => {
+    
+    if (!main.contains(section)) createSection();
+    
+    createRow();
+})
 
 createSectionBtn.addEventListener("click", () => {
     createSection();
@@ -97,6 +105,26 @@ function createRowAndAppend(element) {
     })
 }
 
+function createRow() {
+    const row = document.createElement("div");
+    const rowBtn = document.createElement("button");
+    const destroyRowBtn = document.createElement("button");
+    
+    row.classList.add("row");
+    rowBtn.id = "row-btn";
+    rowBtn.innerText = "Row";
+    destroyRowBtn.id = "destroy-row-btn";
+    destroyRowBtn.innerText = "Destroy";
+    
+    row.append(rowBtn);
+    row.append(destroyRowBtn);
+    section.append(row);
+    
+    destroyRowBtn.addEventListener("click", (e) => {
+        e.target.parentNode.remove();
+    })
+}
+
 function createSection() {
     const sec = document.createElement("section");
     const secBtn = document.createElement("button");
@@ -114,7 +142,7 @@ function createSection() {
     
     const sections = document.getElementsByTagName("section");
     section = sections[sections.length - 1];
-    
+
     destroySecBtn.addEventListener("click", (e) => {
         e.target.parentNode.remove();
     })
