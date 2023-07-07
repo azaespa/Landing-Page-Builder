@@ -41,26 +41,42 @@ createTextBtn.addEventListener("click", () => {
 function createRowAndAppend(element) {
     const row = document.createElement("div");
     const rowBtn = document.createElement("button");
+    const destroyRowBtn = document.createElement("button");
     
     row.classList.add("row");
     rowBtn.id = "row-btn";
     rowBtn.innerText = "Row";
+    destroyRowBtn.id = "destroy-row-btn";
+    destroyRowBtn.innerText = "Destroy";
     
     row.append(rowBtn);
     row.append(element);
+    row.append(destroyRowBtn);
     section.append(row);
+    
+    destroyRowBtn.addEventListener("click", (e) => {
+        e.target.parentNode.remove();
+    })
 }
 
 function createSection() {
     const sec = document.createElement("section");
     const secBtn = document.createElement("button");
+    const destroySecBtn = document.createElement("button");   
     
     sec.id = "section";
     secBtn.id = "section-btn";
     secBtn.innerText = "Section";
+    destroySecBtn.id = "destroy-section-btn";
+    destroySecBtn.innerText = "Destroy";
     
     sec.append(secBtn);
+    sec.append(destroySecBtn);
     main.append(sec);
     
     section = document.getElementById("section");
+    
+    destroySecBtn.addEventListener("click", (e) => {
+        e.target.parentNode.remove();
+    })
 }

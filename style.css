@@ -86,12 +86,29 @@ section#section:hover:not(:has(.row:hover)) {
     transition: background-color .25s ease;
 }
 
-section#section:hover:not(:has(.row:hover)) #section-btn {
+#destroy-section-btn {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: var(--white);
+    background-color: green;
+    border: none;
+    transition: background-color .25s ease;
+}
+
+section#section:hover:not(:has(.row:hover)) #section-btn,
+section#section:hover:not(:has(.row:hover)) #destroy-section-btn {
     display: block;
 }
 
-#section-btn:hover {
+#section-btn:hover,
+#destroy-section-btn:hover {
     background-color: darkgreen;
+}
+
+#section:not(:has(.row)) {
+    border: 1px dotted darkgreen;
 }
 
 .row {
@@ -123,11 +140,25 @@ section#section:hover:not(:has(.row:hover)) #section-btn {
     transition: background-color .25s ease;
 }
 
-.row:hover:not(:has(.element:hover)) #row-btn {
+#destroy-row-btn {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    color: var(--white);
+    background-color: blue;
+    border: none;
+    transition: background-color .25s ease;
+}
+
+.row:hover:not(:has(.element:hover)) #row-btn,
+.row:hover:not(:has(.element:hover)) #destroy-row-btn {
     display: block;
 }
 
-#row-btn:hover {
+#row-btn:hover,
+#destroy-row-btn:hover {
     background-color: darkblue;
 }
 
