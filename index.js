@@ -1,3 +1,5 @@
+import { create } from './smolJS.js';
+
 const main = document.querySelector("main");
 const createTextBtn = document.getElementById("create-text");
 const createHeadlineTextBtn = document.getElementById("create-headline-text");
@@ -137,3 +139,10 @@ function createSection() {
         e.target.parentNode.remove();
     })
 }
+
+create.element({
+    tag: "div",
+    classList: "element",
+    id: new Date().getTime(),
+    innerText: "Hooray!!"
+})
