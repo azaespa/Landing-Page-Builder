@@ -140,9 +140,5 @@ function createSection() {
     })
 }
 
-create.element({
-    tag: "div",
-    classList: "element",
-    id: new Date().getTime(),
-    innerText: "Hooray!!"
-})
+create.textElement();
+console.log(create.textElement().value());
