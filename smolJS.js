@@ -1,6 +1,6 @@
 
 const create = (() => {
-    const element = () => {
+    const elementContainer = () => {
         
         const container = document.createElement("div");
         container.classList.add("element");
@@ -17,13 +17,12 @@ const create = (() => {
     
         container.append(elemBtn);
         container.append(destroyElem);
-        document.body.append(container);
      
         destroyElem.addEventListener("click", (e) => {
             e.target.parentNode.remove();
-        })    
-
-        return { container };
+        })
+        
+        return container;
     }
 
     const textElement = () => {
@@ -31,20 +30,11 @@ const create = (() => {
         text.classList.add("text");
         text.contentEditable = true;
         text.innerText = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem dolore, alias, numquam enim ab voluptate id quam harum ducimus cupiditate similique quisquam et deserunt, recusandae.";
-
-        // elementContainer().append(text);
-        element().container.append(text);
         
-        const value = () => {
-            const val = text;
-            text.parentNode.remove();
-            return val;
-        }
-        
-        return { value };
+        return text;
     }
 
-    return { textElement };
+    return { elementContainer, textElement };
 })()
 
 export { create };

@@ -7,7 +7,9 @@ const createHeadlineTextBtn = document.getElementById("create-headline-text");
 const createRowBtn = document.getElementById("create-row");
 const createSectionBtn = document.getElementById("create-section");
 
-let section = document.getElementById("section");
+let section = document.querySelector(".section");
+
+let sections = [];
 
 createRowBtn.addEventListener("click", () => {
 
@@ -59,31 +61,23 @@ createTextBtn.addEventListener("click", () => {
         createSection();
     }
 
-    const element = document.createElement("div");
-    const elementBtn = document.createElement("button");
-    const text = document.createElement("p");
-    const destroyElementBtn = document.createElement("button");
+    const elementContainer = create.elementContainer();
+    const textElement = create.textElement();
 
-    element.classList.add("element");
-    elementBtn.id = "element-btn";
-    elementBtn.innerText = "Text";
+    elementContainer.append(textElement);
+    row.createAndAppend(elementContainer);
+    
+    sections.push(elementContainer);
 
-    text.classList.add("text");
-    text.contentEditable = "true";
-    text.innerText = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem dolore, alias, numquam enim ab voluptate id quam harum ducimus cupiditate similique quisquam et deserunt, recusandae.";
+    const allElements = document.querySelector("main").querySelectorAll("section");
 
-    destroyElementBtn.classList.add("destroy-element-btn");
-    destroyElementBtn.id = "destroy-element-btn";
-    destroyElementBtn.innerText = "Destroy";
+    sections.push(allElements);
+    //to make it display again in html
+    // for (let element of allElements) {
+    //     document.querySelector(".test").innerHTML += element.outerHTML;
+    // }
 
-    element.append(elementBtn);
-    element.append(text);
-    element.append(destroyElementBtn);
-    row.createAndAppend(element);
-
-    destroyElementBtn.addEventListener("click", (e) => {
-        e.target.parentNode.remove();
-    })
+    console.log(sections);
 })
 
 const row = (() => {
@@ -122,7 +116,8 @@ function createSection() {
     const secBtn = document.createElement("button");
     const destroySecBtn = document.createElement("button");
 
-    sec.id = "section";
+    sec.classList.add("section");
+    sec.id = new Date().getTime();
     secBtn.id = "section-btn";
     secBtn.innerText = "Section";
     destroySecBtn.id = "destroy-section-btn";
@@ -140,5 +135,8 @@ function createSection() {
     })
 }
 
-create.textElement();
-console.log(create.textElement().value());
+// const document = () => {
+//     const element = () => {
+        
+//     }
+// }
