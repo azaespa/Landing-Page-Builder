@@ -7,9 +7,21 @@ const createHeadlineTextBtn = document.getElementById("create-headline-text");
 const createRowBtn = document.getElementById("create-row");
 const createSectionBtn = document.getElementById("create-section");
 
+const testBtn = document.getElementById("test-btn");
+const saveBtn = document.getElementById("save-btn");
+
 let section = document.querySelector(".section");
 
 let sections = [];
+
+// Fetch the saved sections from the localStorage
+// Refactor the code next time
+let showSections = (localStorage.getItem("LPB") != null) ? JSON.parse(localStorage.getItem("LPB")) : null;
+if (showSections != null) {
+    for (let sec of showSections) {
+        main.innerHTML += sec.e;
+    }
+}
 
 createRowBtn.addEventListener("click", () => {
 
@@ -54,9 +66,6 @@ createHeadlineTextBtn.addEventListener("click", () => {
 })
 
 createTextBtn.addEventListener("click", () => {
-    // check if there's already a section element
-    // if yes, append to that.
-    // if no, create one.
     if (!main.contains(section)) {
         createSection();
     }
@@ -67,17 +76,22 @@ createTextBtn.addEventListener("click", () => {
     elementContainer.append(textElement);
     row.createAndAppend(elementContainer);
     
-    sections.push(elementContainer);
-
     const allElements = document.querySelector("main").querySelectorAll("section");
 
-    sections.push(allElements);
-    //to make it display again in html
-    // for (let element of allElements) {
-    //     document.querySelector(".test").innerHTML += element.outerHTML;
-    // }
+    // Push to sections array as object
+    // Next time, find a way to make them wont duplicate in the array
+    for (let element of allElements) {
+        sections.push({ e: element.outerHTML, id: element.id });
+    }
+})
 
-    console.log(sections);
+testBtn.addEventListener("click", () => {
+
+})
+
+saveBtn.addEventListener("click", () => {
+    // Save all the sections and all its children to localStorage
+    localStorage.setItem("LPB", JSON.stringify(sections));
 })
 
 const row = (() => {
