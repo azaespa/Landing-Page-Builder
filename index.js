@@ -70,19 +70,20 @@ createTextBtn.addEventListener("click", () => {
         createSection();
     }
 
-    const elementContainer = create.elementContainer();
-    const textElement = create.textElement();
+    // const elementContainer = create.elementContainer();
+    const textElement = create.TextElement("Lorem lorem");
 
-    elementContainer.append(textElement);
-    row.createAndAppend(elementContainer);
+    // elementContainer.append(textElement);
+    console.log(textElement)
+    row.createAndAppend(textElement.create());
     
-    const allElements = document.querySelector("main").querySelectorAll("section");
+    // const allElements = document.querySelector("main").querySelectorAll("section");
 
     // Push to sections array as object
     // Next time, find a way to make them wont duplicate in the array
-    for (let element of allElements) {
-        sections.push({ e: element.outerHTML, id: element.id });
-    }
+    // for (let element of allElements) {
+    //     sections.push({ e: element.outerHTML, id: element.id });
+    // }
 })
 
 testBtn.addEventListener("click", () => {

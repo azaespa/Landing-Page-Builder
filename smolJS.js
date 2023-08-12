@@ -34,7 +34,37 @@ const create = (() => {
         return text;
     }
 
-    return { elementContainer, textElement };
+    function TextElement(innerText) {
+        this.innerText = innerText;
+    }
+
+    TextElement.prototype.create = () => {
+        const container = document.createElement("div");
+        container.classList.add("element");
+        container.id = new Date().getTime();
+        
+        const elemBtn = document.createElement("button");
+        elemBtn.id = "element-btn";
+        elemBtn.innerText = "Text";
+
+        const destroyElem = document.createElement("button");
+        destroyElem.classList.add("destroy-element-btn");
+        destroyElem.id = "destroy-element-btn";
+        destroyElem.innerText = "Destroy";
+    
+        container.append(elemBtn);
+        container.append(destroyElem);
+     
+        destroyElem.addEventListener("click", (e) => {
+            e.target.parentNode.remove();
+        })
+
+        const text = document.createElement("p");
+        text.classList.add("text");
+        text.contentEditable = true;
+    }
+
+    return { elementContainer, textElement, TextElement };
 })()
 
 export { create };
