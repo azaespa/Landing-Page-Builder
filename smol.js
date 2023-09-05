@@ -51,10 +51,6 @@ const create = (() => {
     
         _element.append(elemBtn);
         _element.append(destroyElem);
-     
-        destroyElem.addEventListener("click", (e) => {
-            e.target.parentNode.remove();
-        })
         
         return _element;
     }
@@ -68,12 +64,20 @@ const create = (() => {
         return _text;
     }
 
-    return { section, row, element, text };
+    const headlineText = () => {
+        const _headlineText = document.createElement("h1");
+        _headlineText.classList.add("headline-text");
+        _headlineText.contentEditable = "true";
+        _headlineText.innerText = "Large Headline Text.";
+
+        return _headlineText;
+    }
+
+    return { section, row, element, text, headlineText };
 })();
 
 const sections = (() => {
     const isAvailableOn = (main) => {
-        console.log(main.contains(document.querySelector(".section")));
         return main.contains(document.querySelector(".section"));
     }
 
