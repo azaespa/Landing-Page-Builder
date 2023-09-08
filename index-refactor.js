@@ -3,6 +3,8 @@ import { create, sections } from "./smol.js";
 const main = document.querySelector("main");
 const createTextBtn = document.getElementById("create-text");
 const createHeadlineTextBtn = document.getElementById("create-headline-text");
+const createRowBtn = document.getElementById("create-row");
+const createSectionBtn = document.getElementById("create-section");
 
 const testBtn = document.getElementById("test-btn");
 
@@ -29,3 +31,17 @@ createHeadlineTextBtn.addEventListener("click", () => {
     section.append(row);
     main.append(section);
 });
+
+createRowBtn.addEventListener("click", () => {
+    const section = sections.isAvailableOn(main) ? sections.selectFurthest() : create.section();
+    const row = create.row();
+
+    section.append(row);
+    main.append(section);
+})
+
+createSectionBtn.addEventListener("click", () => {
+    const section = create.section();
+
+    main.append(section);
+})
