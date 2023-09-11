@@ -7,7 +7,20 @@ const createBulletedList = document.getElementById("bulleted-list");
 const createRowBtn = document.getElementById("create-row");
 const createSectionBtn = document.getElementById("create-section");
 
-const testBtn = document.getElementById("test-btn");
+const getBtn = document.getElementById("get-btn");
+const saveBtn = document.getElementById("save-btn");
+
+getBtn.addEventListener("click", () => {
+    const lsKey = (localStorage.getItem("lsKey") !== null);
+
+    if (lsKey) {
+        main.innerHTML = JSON.parse(localStorage.getItem("lsKey"));
+    }
+})
+
+saveBtn.addEventListener("click", () => {
+    localStorage.setItem("lsKey", JSON.stringify(main.innerHTML));
+})
 
 createTextBtn.addEventListener("click", () => {
     const section = sections.isAvailableOn(main) ? sections.selectFurthest() : create.section();
