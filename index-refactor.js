@@ -13,8 +13,17 @@ const saveBtn = document.getElementById("save-btn");
 getBtn.addEventListener("click", () => {
     const lsKey = (localStorage.getItem("lsKey") !== null);
 
-    if (lsKey) {
-        main.innerHTML = JSON.parse(localStorage.getItem("lsKey"));
+    if (!lsKey) return;
+
+    main.innerHTML = JSON.parse(localStorage.getItem("lsKey"));
+
+    const destroyBtns = document.querySelectorAll("#destroy-btn");
+    console.log(destroyBtns)
+    for (const btn of destroyBtns) {
+        btn.addEventListener("click", (e) => {
+            e.target.parentNode.remove();
+        })
+        console.log(btn)
     }
 })
 

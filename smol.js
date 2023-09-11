@@ -8,7 +8,8 @@ const create = (() => {
         _section.id = new Date().getTime();
         secBtn.id = "section-btn";
         secBtn.innerText = "Section";
-        destroySecBtn.id = "destroy-section-btn";
+        destroySecBtn.classList.add("destroy-section-btn");
+        destroySecBtn.id = "destroy-btn";
         destroySecBtn.innerText = "Destroy";
 
         _section.append(secBtn);
@@ -26,7 +27,8 @@ const create = (() => {
         _row.id = new Date().getTime();
         rowBtn.id = "row-btn";
         rowBtn.innerText = "Row";
-        destroyRowBtn.id = "destroy-row-btn";
+        destroyRowBtn.classList.add("destroy-row-btn");
+        destroyRowBtn.id = "destroy-btn";
         destroyRowBtn.innerText = "Destroy";
 
         _row.append(rowBtn);
@@ -46,7 +48,7 @@ const create = (() => {
 
         const destroyElem = document.createElement("button");
         destroyElem.classList.add("destroy-element-btn");
-        destroyElem.id = "destroy-element-btn";
+        destroyElem.id = "destroy-btn";
         destroyElem.innerText = "Destroy";
     
         _element.append(elemBtn);

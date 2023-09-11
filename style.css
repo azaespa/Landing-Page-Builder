@@ -85,7 +85,7 @@ section.section:hover:not(:has(.row:hover)) {
     transition: background-color .25s ease;
 }
 
-#destroy-section-btn {
+.destroy-section-btn {
     display: none;
     position: absolute;
     right: 0;
@@ -97,16 +97,16 @@ section.section:hover:not(:has(.row:hover)) {
 }
 
 section.section:hover:not(:has(.row:hover)) #section-btn,
-section.section:hover:not(:has(.row:hover)) #destroy-section-btn {
+section.section:hover:not(:has(.row:hover)) .destroy-section-btn {
     display: block;
 }
 
-#section-btn:hover,
-#destroy-section-btn:hover {
+.section-btn:hover,
+.destroy-section-btn:hover {
     background-color: darkgreen;
 }
 
-#section:not(:has(.row)) {
+.section:not(:has(.row)) {
     border: 1px dotted darkgreen;
 }
 
@@ -139,7 +139,7 @@ section.section:hover:not(:has(.row:hover)) #destroy-section-btn {
     transition: background-color .25s ease;
 }
 
-#destroy-row-btn {
+.destroy-row-btn {
     display: none;
     position: absolute;
     right: 0;
@@ -152,12 +152,12 @@ section.section:hover:not(:has(.row:hover)) #destroy-section-btn {
 }
 
 .row:hover:not(:has(.element:hover)) #row-btn,
-.row:hover:not(:has(.element:hover)) #destroy-row-btn {
+.row:hover:not(:has(.element:hover)) .destroy-row-btn {
     display: block;
 }
 
 #row-btn:hover,
-#destroy-row-btn:hover {
+.destroy-row-btn:hover {
     background-color: darkblue;
 }
 
@@ -182,7 +182,7 @@ section.section:hover:not(:has(.row:hover)) #destroy-section-btn {
     transition: background-color .25s ease;
 }
 
-#destroy-element-btn {
+.destroy-element-btn {
     display: none;
     position: absolute;
     right: 0;
@@ -194,7 +194,7 @@ section.section:hover:not(:has(.row:hover)) #destroy-section-btn {
 }
 
 .element:hover #element-btn,
-.element:hover #destroy-element-btn {
+.element:hover .destroy-element-btn {
     display: block;
 }
 
