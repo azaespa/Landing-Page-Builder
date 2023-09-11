@@ -73,7 +73,24 @@ const create = (() => {
         return _headlineText;
     }
 
-    return { section, row, element, text, headlineText };
+    const bulletedList = () => {
+        const ul = document.createElement("ul");
+        const li1 = document.createElement("li");
+        const li2 = document.createElement("li");
+        const li3 = document.createElement("li");
+
+        li1.innerText = "Lorem ipsum dolor";
+        li2.innerText = "Lorem ipsum dolor";
+        li3.innerText = "Lorem ipsum dolor";
+
+        ul.append(li1);
+        ul.append(li2);
+        ul.append(li3);
+
+        return ul;
+    }
+    
+    return { section, row, element, text, headlineText, bulletedList };
 })();
 
 const sections = (() => {
